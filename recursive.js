@@ -30,14 +30,14 @@ function solveMenus(menus, name, index = 0) {
 }
 
 /* Resolve os menus e seus filhos */
-function findMenu(menu, name, index = 0) {
+function findMenu(menu, name) {
     if (menu.name === name) {
         return menu.name
     }
 
     let found = undefined
     for (item of menu.items) {
-        const menuRecursiveFound = findMenu(item, name, ++index)
+        const menuRecursiveFound = findMenu(item, name)
         found = found ?? menuRecursiveFound
     }
     return found
